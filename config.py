@@ -1,4 +1,8 @@
-BOT_TOKEN = "PASTE_BOT_TOKEN_HERE"
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN", "PASTE_BOT_TOKEN_HERE")
 PREFIX = "&"
 REQUIRED_ROLE = "OWNER"
 
