@@ -1,10 +1,8 @@
-
 import discord
 import requests
 import asyncio
 from datetime import datetime
 import os
-
 
 def check(bot):
 
@@ -12,17 +10,14 @@ def check(bot):
         """Updates the tokens.txt file, ensuring no duplicates and replacing old tokens."""
         tokens_dict = {}
 
-        # Read existing tokens from the file
         if os.path.exists("tokens.txt"):
             with open("tokens.txt", "r") as file:
                 for line in file:
                     name, old_token = line.strip().split(" : ", 1)
                     tokens_dict[name] = old_token
 
-        # Update or add the new token
         tokens_dict[username] = token
 
-        # Write updated tokens back to the file
         with open("tokens.txt", "w") as file:
             for name, token in tokens_dict.items():
                 file.write(f"{name} : {token}\n")

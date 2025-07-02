@@ -53,8 +53,6 @@ def vc_cmds(bot):
 
         await ctx.send(f"**All members have been moved from {source_channel.name} to {target_channel.name}.  ||({ctx.author.name})||**")
 
-
-
 # Mute All Command
     @bot.command(name="muteall")
     @commands.check(check_role)

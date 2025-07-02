@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from config import check_role
 
-
 def text_cmds(bot):
 
 # Lock Command

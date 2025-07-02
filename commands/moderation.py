@@ -1,5 +1,3 @@
-# moderation_commands.py
-
 import discord
 from discord.ext import commands
 from datetime import timedelta
@@ -7,16 +5,13 @@ from config import fetch_member, check_role
 from collections import defaultdict
 sniped_messages = defaultdict(list)
 
-
-
 def moderation_cmds(bot):
 
     @bot.event
     async def on_message_delete(message):
-        if message.author.bot:  # Ignore bot messages
+        if message.author.bot:
             return
 
-        # Create a record of the deleted message
         record = {
             "content": message.content,
             "author": str(message.author),
@@ -83,28 +78,6 @@ def moderation_cmds(bot):
             ]
         )
         await ctx.send(f"Sniped message history:\n{snipe_summary}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             
     # Kick Command
     @bot.command(name="kick")
@@ -122,8 +95,6 @@ def moderation_cmds(bot):
             await ctx.send(f"**I do not have permission to kick {member.display_name}.  ||({ctx.author.name})||**")
         except Exception as e:
             await ctx.send(f"**Failed to kick the member: {e}  ||({ctx.author.name})||**")
-
-
 
             # Ban Command
     @bot.command(name="ban")

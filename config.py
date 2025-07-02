@@ -1,4 +1,4 @@
-BOT_TOKEN = "MTE3Mjk0MjQ0NDM0MjU2Mjg1Ng.GgKxk0.aqvgWf5DByohB1jAE_5_BOdEmELLsfIea8hTZQ"
+BOT_TOKEN = "PASTE_BOT_TOKEN_HERE"
 PREFIX = "&"
 REQUIRED_ROLE = "OWNER"
 
@@ -29,5 +29,3 @@ async def fetch_member(ctx, member_identifier: str):
 # Check Role Function to Restrict Commands
 def check_role(ctx):
     return any(role.name == REQUIRED_ROLE for role in ctx.author.roles)
-
-

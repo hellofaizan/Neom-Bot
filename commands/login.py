@@ -3,10 +3,7 @@ import discord
 from discord.ext import commands
 from config import check_role
 
-# Load data from data.json
 DATA_FILE = "data.json"
-
-
 
 try:
     with open(DATA_FILE, "r") as f:
@@ -16,11 +13,9 @@ except FileNotFoundError:
 
 whitelisted_servers = data["whitelisted_servers"]
 
-# Function to save changes to data.json
 def save_data():
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=4)
-
 
 def ready1(bot):
 
@@ -85,7 +80,6 @@ def ready1(bot):
             await ctx.send("The bot is not in a server with this ID.")
 
 
-    # Event: Bot has joined a server
     @bot.event
     async def on_guild_join(guild):
         print(f"Joined a new server: {guild.name}")  # Debugging line to ensure the event is triggered
@@ -119,6 +113,3 @@ def ready1(bot):
             # Log unexpected errors for debugging
             await ctx.send("⚠️ An unexpected error occurred. Please try again later.")
             raise error  # Optional: Raises the error for logging or debugging purposes
-
-    
-

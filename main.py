@@ -7,7 +7,7 @@ from config import BOT_TOKEN, PREFIX
 intents = discord.Intents.default()
 intents.message_content = True 
 intents.guilds = True
-bot = commands.Bot(command_prefix=PREFIX, intents = intents , case_insensitive=True)
+bot = commands.Bot(command_prefix=PREFIX, intents = intents , case_insensitive=True, help_command=None)
 
 from commands.user_commands import user_cmds
 from commands.moderation import moderation_cmds
@@ -26,10 +26,10 @@ check(bot)
 ready1(bot)
 
 status_messages = [
-    "Helping with commands | ~help",
-    "Always here to assist | ~help",
-    "Making Discord a better place | ~help",
-    "Your friendly neighborhood bot | ~help",
+    "Helping with commands | &help",
+    "Always here to assist | &help",
+    "Making Discord a better place | &help",
+    "Your friendly neighborhood bot | &help",
 ]
 
 command_list = [f"{cmd.name} - {cmd.help}" for cmd in bot.commands if not cmd.hidden]
