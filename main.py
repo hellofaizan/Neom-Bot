@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 import asyncio
 from config import BOT_TOKEN, PREFIX
+from keep_alive import app as keep_alive_app
+import threading
 
 intents = discord.Intents.default()
 intents.message_content = True 
@@ -50,5 +52,10 @@ async def on_ready():
     bot.loop.create_task(rotate_status())
 
     print("Bot is ready!")
+
+def run_keep_alive():
+    keep_alive_app.run(host='0.0.0.0', port=8080)
+
+threading.Thread(target=run_keep_alive, daemon=True).start()
 
 bot.run(BOT_TOKEN)
