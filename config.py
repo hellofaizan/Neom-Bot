@@ -28,4 +28,10 @@ async def fetch_member(ctx, member_identifier: str):
 
 # Check Role Function to Restrict Commands
 def check_role(ctx):
-    return any(role.name == REQUIRED_ROLE for role in ctx.author.roles)
+    perms = ctx.author.guild_permissions
+    return (
+        perms.administrator or
+        perms.manage_guild or
+        perms.manage_channels or
+        any(role.name == REQUIRED_ROLE for role in ctx.author.roles)
+    )
